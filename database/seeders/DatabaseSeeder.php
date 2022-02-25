@@ -25,8 +25,16 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'remember_token' => Str::random(10),
         ]);
+        User::create([
+            'name' => 'Ilmi Faizan',
+            'username' => 'icang',
+            'email' => 'icang@gmail.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('password'),
+            'remember_token' => Str::random(10),
+        ]);
 
-        User::factory(2)->create();
+        User::factory(1)->create();
 
         Category::create([
             'name' => 'Programming',

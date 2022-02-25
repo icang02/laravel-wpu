@@ -8,8 +8,14 @@
 
                 <a href="/dashboard/posts" class="btn btn-success me-1"><span data-feather="arrow-left"></span> Back to
                     posts</a>
-                <a href="/dashboard/posts" class="btn btn-warning me-1"><span data-feather="edit"></span> Ediit</a>
-                <a href="/dashboard/posts" class="btn btn-danger"><span data-feather="x-circle"></span>Delete</a>
+                <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning me-1"><span
+                        data-feather="edit"></span> Edit</a>
+                <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
+                    @csrf
+                    @method('delete')
+                    <button class="btn btn-danger" onclick="return alert('Are you sure?')"><span
+                            data-feather="file-text"></span> Delete</button>
+                </form>
 
                 <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}"
                     alt="{{ $post->category->name }}" class="img-fluid shadow mt-3">

@@ -24,8 +24,15 @@
 
         @if ($posts->count())
             <div class="card shadow">
-                <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}" class="card-img-top"
-                    alt="{{ $posts[0]->category->name }}">
+                @if ($posts[0]->image)
+                    <div style="max-height: 350px; overflow:hidden">
+                        <img src="{{ asset('storage/' . $posts[0]->image) }}" alt="{{ $posts[0]->category->name }}"
+                            class="img-fluid shadow">
+                    </div>
+                @else
+                    <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}" class="card-img-top"
+                        alt="{{ $posts[0]->category->name }}">
+                @endif
 
                 <div class="card-body text-center">
                     <h3 class="card-title">{{ $posts[0]->title }}</h3>
@@ -54,8 +61,15 @@
                                 <a class="text-decoration-none text-white"
                                     href="/posts?category={{ $post->category->slug }}">{{ $post->category->name }}</a>
                             </div>
-                            <img src="https://source.unsplash.com/500x350?{{ $post->category->name }}"
-                                class="card-img-top" alt="{{ $post->category->name }}">
+
+                            @if ($post->image)
+                                <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}"
+                                    class="img-fluid shadow">
+                            @else
+                                <img src="https://source.unsplash.com/500x350?{{ $post->category->name }}"
+                                    class="card-img-top" alt="{{ $post->category->name }}">
+                            @endif
+
                             <div class="card-body">
                                 <h5 class="card-title">{{ $post->title }}</h5>
                                 <p class="mb-3">

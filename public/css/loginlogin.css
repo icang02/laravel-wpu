@@ -1,0 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background: rgb(219, 226, 226); */
+  background: #557085
+}
+
+.row {
+  background: #fff;
+  border-radius: 30px
+}
+
+.bg-img {
+  background-image: url('https://source.unsplash.com/500x600?web');
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  background-size: cover;
+}
